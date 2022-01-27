@@ -95,6 +95,7 @@ ls ca*    # see the cat command.
 ```bash
 cd
 mkdir test && cd test
+mkdir test ; cd test
 nano test.sh
 # copy and paste the code-echo "hello world"- in test.sh
 chmod +x test.sh

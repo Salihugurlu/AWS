@@ -1,0 +1,12 @@
+MYVAR=my value
+echo $MYVAR
+MYVAR="my value"
+echo $MYVAR
+MYNAME=james
+MYVAR="my name is $MYNAME"
+echo $MYVAR
+MYNAME="james"
+MYVAR="hello $MYNAME"
+echo $MYVAR
+MYVAR="hello \$MYNAME"
+echo $MYVAR

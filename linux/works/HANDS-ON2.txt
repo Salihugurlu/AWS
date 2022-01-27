@@ -1,0 +1,18 @@
+cd
+mkdir test && cd test
+nano test.sh
+# copy and paste the code-echo "hello world"- in test.sh + "ls -al" de ekle
+chmod +x test.sh
+./test.sh
+cd    # change directory to ec2-user's home directory
+./test.sh    # it doesnt work. 
+./test/test.sh
+printenv PATH
+cd test
+pwd
+export PATH=$PATH:/home/ec2-user/test
+printenv PATH
+cd
+test.sh
+cd /
+test.sh

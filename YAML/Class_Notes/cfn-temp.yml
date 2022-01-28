@@ -14,4 +14,4 @@ Resources:
         - cfn-sec-group
       Tags:
         - Key: Name
-          Value: Cfn-Instance
+          Value: My-Instance

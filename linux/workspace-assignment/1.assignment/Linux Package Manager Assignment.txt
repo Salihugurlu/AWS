@@ -1,0 +1,7 @@
+1-sudo yum autoremove git -y
+2-git --version
+3-sudo yum --showduplicates list git
+4-sudo yum install git-2.14.4-1.amzn2 -y
+5-git --version
+6-sudo yum update git -y
+7-git --version

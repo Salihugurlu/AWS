@@ -2,7 +2,7 @@
 
 Purpose of the this hands-on training is to teach the students how to script in shell.
 
-## Learning Outcomes
+## Learning Outcomess
 
 At the end of the this hands-on training, students will be able to;
 

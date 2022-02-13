@@ -320,7 +320,7 @@ crontab -u username -e  # edit other users's crontab file
 
 ```bash
 crontab -e
-0 13 * * * echo date >> /home/ec2-user/date.log
+0 13 * * * date >> /home/ec2-user/date.log
 ```
 
 - Create a cron task updates and upgrades our server every Sunday at 3 a.m.

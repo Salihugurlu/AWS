@@ -1,40 +1,48 @@
 #!/bin/bash
 
 # Check if we are root privilage or not
-if [[ $(which user) ==  root ]]
+if [[ $(whoami) == root ]]
 then
-  echo "You have root privilages"
+  echo "You are root user"
 else
   sudo su -
 fi
+
 # Which files are we going to back up. Please make sure to exist /home/ec2-user/data file
 if [[ -e /home/ec2-user/data ]]
 then
-  echo "/home/ec2-user/data file exist"
+  echo "/home/ec2-user/data folder exist"
 else
-  touch /home/ec2-user/data
+  mkdir /home/ec2-user/data
+  echo "/home/ec2-user/data created"
 fi
 
 # Where do we backup to. Please crete this file before execute this script
-mkdir /mnt/backup
+if [[ -e /mnt/backup ]]
+then
+  echo "/mnt/backup folder exist"
+else
+  mkdir /mnt/backup
+  echo "/mnt/backup created"
+fi
 
 # Create archive filename based on time
-DATE=`date`
-tar $HOSTNAME $DATE.tgz /home/ec2-user/data
-tar $HOSTNAME $DATE.tgz /etc
-tar $HOSTNAME $DATE.tgz /boot
-tar $HOSTNAME $DATE.tgz /usr
+EC2USER_BACKUP="${HOSTNAME}_ec2user_data_$(date +"%Y_%m_%d_%I_%M_%p").tgz"
+ETC_BACKUP="${HOSTNAME}_etc_$(date +"%Y_%m_%d_%I_%M_%p").tgz"
+BOOT_BACKUP="${HOSTNAME}_boot_$(date +"%Y_%m_%d_%I_%M_%p").tgz"
+USR_BACKUP="${HOSTNAME}_usr_$(date +"%Y_%m_%d_%I_%M_%p").tgz"
 
 # Print start status message.
 echo "backup process is started"
 
 # Backup the files using tar.
-
+tar -cvf /mnt/backup/"$EC2USER_BACKUP" /home/ec2-user/data
+tar -cvf /mnt/backup/"$ETC_BACKUP" /etc
+tar -cvf /mnt/backup/"$BOOT_BACKUP" /boot
+tar -cvf /mnt/backup/"$USR_BACKUP" /usr
 
 # Print end status message.
 echo "backup process is ended"
 
 # Long listing of files in $dest to check file sizes.
-
-crontab -e
-0 13 * * * date >> /home/ec2-user/date.log
+ls -al /mnt/backup

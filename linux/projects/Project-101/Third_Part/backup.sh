@@ -45,4 +45,6 @@ tar -cvf /mnt/backup/"$USR_BACKUP" /usr
 echo "backup process is ended"
 
 # Long listing of files in $dest to check file sizes.
-ls -al /mnt/backup
+ls -al /root/mnt/backup
+
+# According to the project this bash script will be executed in every 5 minutes via crontab.

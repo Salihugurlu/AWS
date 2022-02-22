@@ -12,8 +12,6 @@
 
 # https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
 
-
-
 # Win:
 # https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
 
@@ -26,7 +24,7 @@
 # Linux:
 # https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
 
-#My references
+
 https://docs.aws.amazon.com/cli/latest/index.html
 
 
@@ -36,9 +34,11 @@ https://docs.aws.amazon.com/cli/latest/index.html
 sudo yum remove awscli -y # pip uninstall awscli/pip3 uninstall awscli might also work depending on the image
 
 # Install AWS CLI Version 2
+
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 unzip awscliv2.zip  #install "unzip" if not installed
 sudo ./aws/install
+
 
 # Update the path accordingly if needed
 export PATH=$PATH:/usr/local/bin/aws
@@ -53,10 +53,14 @@ aws configure
   Default region name [None]: us-east-1
   Default output format [None]: yaml
 
+# Configuration
+
+aws configure
+
 cat .aws/config
 cat .aws/credentials
 
-#This time we can change our configation settings
+
 aws configure
 
 #after "aws configure" following options
@@ -84,6 +88,13 @@ export AWS_DEFAULT_REGION=us-west-2
 aws configure list-profiles 
 (How many profile are there?)
 
+aws configure --profile user1
+
+export AWS_PROFILE=user1
+export AWS_PROFILE=default
+
+aws configure list-profiles
+
 aws sts get-caller-identity
 
 # IAM
@@ -102,11 +113,13 @@ aws s3 mb s3://guile-cli-bucket
 aws s3 cp in-class.yaml s3://guile-cli-bucket
 
 aws s3 ls s3://guile-cli-bucket
-aws s3 ls s3://murat-cli-bucket/ --recursive
+
+aws s3 ls s3://murat-cli-bucket/ --recursive 
 
 aws s3 rm s3://guile-cli-bucket/in-class.yaml
 
 aws s3 rb s3://guile-cli-bucket
+
 aws s3 rb s3://murat-cli-bucket/ --force
 
 
@@ -156,3 +169,16 @@ aws ec2 terminate-instances --instance-ids i-010e26e7464ddfbb5 --dry-run
 aws ec2 stop-instances --instance-ids i-010e26e7464ddfbb5 --dry-run
 
 ## Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation . Otherwise, it is UnauthorizedOperation .
+
+# Update AWS CLI Version 1 on Amazon Linux (comes default) to Version 2
+
+# Remove AWS CLI Version 1
+sudo yum remove awscli -y # pip uninstall awscli/pip3 uninstall awscli might also work depending on the image
+
+# Install AWS CLI Version 2
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip  #install "unzip" if not installed
+sudo ./aws/install
+
+# Update the path accordingly if needed
+export PATH=$PATH:/usr/local/bin/aws

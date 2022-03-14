@@ -216,7 +216,7 @@ click create and show that the status is unhealthy approximately after 90 second
 
 - Got to the hosted zone and select the public hosted zone of our domain name
 
-- Clear all teh record sets except NS and SOA
+- Clear all the record sets except NS and SOA
 
 - Click create record
 
@@ -409,7 +409,7 @@ Value/Route traffic to :
 Routing: "Simple"
 ```
 - go to "Window" instance and connect it with RDP
-- open the Internet Explorer of "Window" instance 
+- open the Internet Explorer of "Windows" instance 
 - type "www.clarusway.us". show which content is seen "local instance content" in VPC 
 - go to the public browser than type browser: "www.clarusway.us" than show that, N.Virginia instance is seen on public internet.
 

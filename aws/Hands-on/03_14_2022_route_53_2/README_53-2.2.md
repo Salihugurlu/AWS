@@ -123,7 +123,7 @@ wget https://raw.githubusercontent.com/awsdevopsteam/route-53/master/local/Local
 service httpd start
 
 ```
-4. Create "Windows" instance in VPC of  "clarus-vpc-a" named "Windows"
+5. Create "Windows" instance in VPC of  "clarus-vpc-a" named "Windows"
 
 ```bash 
 Region: "N.Virginia"
@@ -382,7 +382,7 @@ button
 
 - Show that NS and SOA records automatically created. 
 
-### STEP 2: Creating in A record with "wwww" in Private Hosted Zone
+### STEP 2: Creating in A record with "www" in Private Hosted Zone
 
 - Go  to "PRIVATE" Hosted Zone 
 - Create A record in "PRIVATE" Hosted Zone 

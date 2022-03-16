@@ -58,8 +58,8 @@ Resources:
             QueryString: true 
             Cookies:
               Forward: none 
-          TargetOriginId: KittensOrigin  
-          ViewerProtocolPolicy: allow-all 
+          TargetOriginId: KittensOrigin
+          ViewerProtocolPolicy: redirect-to-https
         DefaultRootObject: index.html
         Enabled: true
         HttpVersion: 'http2'

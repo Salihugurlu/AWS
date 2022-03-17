@@ -3,17 +3,20 @@ Description: |
   Cloudformation Template for kittens carousel static website deploy on s3 through cloudfront and route 53
 
 Parameters:
-  DomainName:
-    Description: DNS Name of existing Amazon Route 53 hosted zone. exp. clarusway.us
+
+  HostedZoneID:
+    Description: Hosted Zone Id of existing Amazon Route 53 hosted zone
     Type: AWS::Route53::HostedZone::Id
+
   KittensDomainName:
     Description: Full domain name for the App. ex. kittens.clarusway.us
     Type: String
     AllowedPattern: (?!-)[a-zA-Z0-9-.]{1,63}(?<!-)
 
 Resources:
+
   KittensBucket:
-    Type: "AWS::S3::Bucket"
+    Type: AWS::S3::Bucket
     Properties:
       AccessControl: PublicRead
       BucketName: !Ref KittensDomainName
@@ -23,23 +26,23 @@ Resources:
   KittensBucketPolicy:
     Type: AWS::S3::BucketPolicy
     Properties:
-      Bucket: !Ref KittensBucket 
+      Bucket: !Ref KittensBucket
       PolicyDocument: 
         Statement: 
           - Sid: PublicReadGetObject
             Effect: Allow
             Principal: '*'
             Action: s3:GetObject
-            Resource: !Join ['', ['arn:aws:s3:::', !Ref 'KittensBucket', /*]] # 
+            Resource: !Join ['', ['arn:aws:s3:::', !Ref 'KittensBucket', /*]]
 
   KittensCertificate:
-    Type: "AWS::CertificateManager::Certificate"
+    Type: AWS::CertificateManager::Certificate
     Properties:
-      CertificateTransparencyLoggingPreference: ENABLED 
-      DomainName: !Ref KittensDomainName 
+      CertificateTransparencyLoggingPreference: ENABLED
+      DomainName: !Ref KittensDomainName
       DomainValidationOptions:
         - DomainName: !Ref KittensDomainName
-          HostedZoneId: !Ref DomainName
+          HostedZoneId: !Ref HostedZoneID
       ValidationMethod: DNS
 
   KittensCloudfront:
@@ -58,8 +61,8 @@ Resources:
             QueryString: true 
             Cookies:
               Forward: none 
-          TargetOriginId: KittensOrigin
-          ViewerProtocolPolicy: redirect-to-https
+          TargetOriginId: KittensOrigin  
+          ViewerProtocolPolicy: allow-all 
         DefaultRootObject: index.html
         Enabled: true
         HttpVersion: 'http2'
@@ -71,12 +74,12 @@ Resources:
         PriceClass: PriceClass_All
         ViewerCertificate:  
           AcmCertificateArn: !Ref KittensCertificate
-          SslSupportMethod: sni-only 
+          SslSupportMethod: sni-only
 
   KittenDNSName: 
     Type: AWS::Route53::RecordSetGroup
     Properties:
-      HostedZoneId: !Ref DomainName 
+      HostedZoneId: !Ref HostedZoneID 
       RecordSets: 
         - Name: !Ref KittensDomainName
           Type: A

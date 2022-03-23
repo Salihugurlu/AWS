@@ -88,20 +88,7 @@ STEP 2: Create Lambda Function
   
 ```
 
-STEP 3: Setting Trigger Event
-
-- Go to Configuration sub-menu and click AddTrigger on Designer  
-```
-Trigger Configuration : S3
-
-- Bucket              : clarusway.source.lambda
-
-- Event Type          : All object create events
-
-- Acknowledge         : checked
-```
-
-STEP 4: Create Function Code
+STEP 3: Create Function Code
 
 - Go to the Function Code sub-menu and paste code seen below:
 
@@ -138,6 +125,20 @@ def lambda_handler(event, context):
 ```
 
 - Click "DEPLOY" button
+
+
+STEP 4: Setting Trigger Event
+
+- Go to Configuration sub-menu and click AddTrigger on Designer  
+```
+Trigger Configuration : S3
+
+- Bucket              : clarusway.source.lambda
+
+- Event Type          : All object create events
+
+- Acknowledge         : checked
+```
 
 STEP 5: Testing S3 Bucket Synchronization
 

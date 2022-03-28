@@ -131,7 +131,7 @@ Go to the S3 Consol and lets create two buckets.
 
 - Click Create Bucket
 ```text
-Bucket Name : i
+Bucket Name : muratblog
 Region      : N.Virginia
 Object Ownership
     - ACLs enabled
@@ -164,7 +164,7 @@ Hosting Type : Host a static website
 Index document : index.html
 save changes
 ```
-- Select `www.<YOUR DNS NAME>` bucket ---> select Upload and upload `index.html` and `sorry.jpg` files from given folder---> Permissions ---> Grant public-read access ---> Checked warning massage
+- Select `www.<YOUR DNS NAME>` bucket ---> select Upload and upload `index.html` and `sorry.jpg` files from given folder---> (!!! Before upload the contents !!!) Permissions ---> Grant public-read access ---> Checked warning massage
 
 ## Step 5: Copy files downloaded or cloned from `Clarusway_project` repo on Github 
 

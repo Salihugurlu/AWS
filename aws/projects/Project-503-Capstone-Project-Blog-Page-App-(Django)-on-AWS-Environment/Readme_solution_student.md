@@ -92,7 +92,7 @@ Add Subnets
 Availability Zones : Select 2 AZ in aws_capstone_VPC
 Subnets            : Select 2 Private Subnets in these subnets
 
-We select which AZs and Subnets that the RDS can be in here.
+We selected which AZs and Subnets that the RDS can be in here.
 
 ```
 - Go to the RDS console and click `create database` button

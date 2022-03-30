@@ -50,7 +50,7 @@ In the architecture, you can configure your infrastructure using the followings,
 
     - set maximum size of instances to  ` 4`
 
-    - set health check grace period to  ` 90 seconds`
+    - set health check grace period to  ` 300 seconds`
 
     - set health check type to  ` ELB`
 
@@ -262,7 +262,7 @@ clarusway_blog_proj (folder)
 
 - Step 7: Prepare a userdata to be utilized in Launch Template
 
-- Step 8: Write RDS, S3 in settings file given by Clarusway Fullstack Developer team  
+- Step 8: Write RDS, S3 in settings file given by Clarusway Fullstack Developer team
 
 - Step 9: Create NAT Instance in Public Subnet
 

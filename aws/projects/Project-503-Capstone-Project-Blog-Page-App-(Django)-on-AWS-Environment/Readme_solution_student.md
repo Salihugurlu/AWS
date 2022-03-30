@@ -92,8 +92,6 @@ Add Subnets
 Availability Zones : Select 2 AZ in aws_capstone_VPC
 Subnets            : Select 2 Private Subnets in these subnets
 
-We selected which AZs and Subnets that the RDS can be in here.
-
 ```
 - Go to the RDS console and click `create database` button
 ```text
@@ -131,7 +129,7 @@ Go to the S3 Consol and lets create two buckets.
 
 - Click Create Bucket
 ```text
-Bucket Name : muratblog
+Bucket Name : i
 Region      : N.Virginia
 Object Ownership
     - ACLs enabled
@@ -164,7 +162,7 @@ Hosting Type : Host a static website
 Index document : index.html
 save changes
 ```
-- Select `www.<YOUR DNS NAME>` bucket ---> select Upload and upload `index.html` and `sorry.jpg` files from given folder---> (!!! Before upload the contents !!!) Permissions ---> Grant public-read access ---> Checked warning massage
+- Select `www.<YOUR DNS NAME>` bucket ---> select Upload and upload `index.html` and `sorry.jpg` files from given folder---> Permissions ---> Grant public-read access ---> Checked warning massage
 
 ## Step 5: Copy files downloaded or cloned from `Clarusway_project` repo on Github 
 

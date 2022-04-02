@@ -22,8 +22,6 @@ VS Code Extensions for YAML and Cloudformation:
   redhat.vscode-yaml
   Red Hat
   
-  
- 
  Online YAML-to-JSON/JSON-to-YAML Converters:
  
   - https://codebeautify.org/json-to-yaml

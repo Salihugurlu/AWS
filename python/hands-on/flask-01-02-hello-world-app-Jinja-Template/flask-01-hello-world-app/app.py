@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def head():
-    return "<h1>You are gonna be a good DevOps and AWS Solution Architech</h1>"
+    return "<h1>Hello World</h1>"
 
 @app.route("/second")
 def second():
